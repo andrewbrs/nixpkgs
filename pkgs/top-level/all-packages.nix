@@ -1724,6 +1724,8 @@ with pkgs;
 
   certstrap = callPackage ../tools/security/certstrap { };
 
+  certmgr = callPackage ../tools/security/certmgr { };
+
   cfssl = callPackage ../tools/security/cfssl { };
 
   checkbashisms = callPackage ../development/tools/misc/checkbashisms { };
@@ -1751,6 +1753,8 @@ with pkgs;
   cloogppl = callPackage ../development/libraries/cloog-ppl { };
 
   cloud-utils = callPackage ../tools/misc/cloud-utils { };
+
+  cni-plugins = callPackage ../applications/networking/cluster/cni/plugins.nix {};
 
   compass = callPackage ../development/tools/compass { };
 
