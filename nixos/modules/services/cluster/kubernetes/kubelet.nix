@@ -278,7 +278,7 @@ in
         description = "Kubernetes Kubelet Service";
         wantedBy = [ "kubernetes.target" ];
         after = [ "network.target" "docker.service" "kube-apiserver.service" "kubelet-bootstrap.service" ];
-        path = with pkgs; [ gitMinimal openssh docker utillinux iproute ethtool thin-provisioning-tools iptables socat ] ++ top.path;
+        path = with pkgs; [ gitMinimal openssh docker utillinux iproute ethtool thin-provisioning-tools iptables socat zfs ] ++ top.path;
         serviceConfig = {
           Slice = "kubernetes.slice";
           CPUAccounting = true;
