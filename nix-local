@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+GIT_BASE="${channels/nixos-18.03"
+
+switch() {
+	sudo nixos-rebuild switch -I nixpkgs=/home/b/nixpkgs --show-trace "$@"
+}
+
+update() {
+	git fetch channels
+	git rebase "$GIT_BASE" 
+}
+
+"$@"
