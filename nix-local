@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+GIT_BASE="channels/nixos-18.09"
+
+rebuild () {
+	sudo nixos-rebuild -I nixpkgs=/home/b/nixpkgs --show-trace "$@"
+}
+
+switch() {
+	rebuild switch
+}
+
+build() {
+	rebuild build
+}
+
+update() {
+	git fetch channels
+	git rebase "$GIT_BASE" 
+}
+
+nix-env() {
+	command nix-env -I nixpkgs=/home/b/nixpkgs "$@"
+}
+
+user-upgrade() {
+	nix-env -u
+}
+
+user-switch() {
+	nix-env -iA userPackages -f '<nixpkgs>'
+}
+
+"$@"
