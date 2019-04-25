@@ -1,6 +1,11 @@
 { fetchpatch }:
 
 rec {
+  terminate_i2c =
+    { name = "terminate-i2c";
+      patch = ./terminate-i2c.patch;
+    };
+
   bridge_stp_helper =
     { name = "bridge-stp-helper";
       patch = ./bridge-stp-helper.patch;
